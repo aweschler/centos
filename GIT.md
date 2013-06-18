@@ -18,7 +18,7 @@ Do the following as non-root.
     cd gitosis
     sudo python setup.py install
 	
-Now a user needs to created that will own the repositories, commonly named git.  An example command to create this user is as follows:
+Now a user needs to be created that will own the repositories, commonly named git.  An example command to create this user is as follows:
 
      sudo adduser --system --shell /bin/sh --group --home /home/git git
 
@@ -39,15 +39,15 @@ Now, from the local machine where the admin generated their ssh key from, the fo
      git clone git@serverhostname:gitosisadmin.git
      cd gitosis-admin
 
-This will download two files, a gitosis.conf file and a /keydir/ directory.  Modification of the .conf file will control repositories themselves along with user privileges and grouping, and the /keydir/ directory will be used to hold the .pub files from user created when they generate their public ssh keys.
+This will download two files, a gitosis.conf file and a /keydir directory.  Modification of the .conf file will control repositories themselves along with user privileges and grouping, and the /keydir directory will be used to hold the .pub files from user created when they generate their public ssh keys.
 
 ## Test Scenario
 
 As a test scenario, there are three users:  Alice, Bob, and Zed.  Alice and Bob are students and Zed is the isntructor.  There are two repositories, one which only Alice and Zed have access to, and one which only Bob and Zed have access to.
 
-__SSH Key Copying
+__SSH Key Copying__
 
-All three users will need to have installed Git, and followed the instructions to generate their public ssh key.  Those .pub files needs to be copied into the /keydir/ directory by the admin (which can be done by simply copying them into the downloaded /keydir/ directory on his local machine and committing later).  The name of the file minus the .pub will become their username within Gitosis.  These files can be copied into the /keydir/ and added into the repository with the following commands:
+All three users will need to have installed Git, and followed the instructions to generate their public ssh key.  Those .pub files needs to be copied into the /keydir directory by the admin (which can be done by simply copying them into the downloaded /keydir directory on his local machine and committing later).  The name of the file minus the .pub will become their username within Gitosis.  These files can be copied into the /keydir and added into the repository with the following commands:
 
      cd gitosis-admin
      cp ~/alice.pub keydir/
