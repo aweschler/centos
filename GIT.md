@@ -5,7 +5,7 @@ This page assumes that you have set up the server using the instructions in BASE
 
 I developed these instructions to help me create multiple separate remote git repositories for students of my courses to submit assignments.
 
-## Installation
+## Git/Gitosis Installation
 
 Run the following as root to install required packages.
 
@@ -23,6 +23,8 @@ Now a user needs to created that will own the repositories, commonly named git. 
      sudo adduser --system --shell /bin/sh --group --home /home/git git
 
 A password is not required, but can be used.  The most important parameter in this command is making sure the user has a valid shell as defined by --shell.
+
+## SSH Key Generation and Authentication
 
 From the admin's computer, an ssh authentication key must be created. On the local machine, this is done via the following command:
 
@@ -43,6 +45,8 @@ This will download two files, a gitosis.conf file and a /keydir/ directory.  Mod
 
 As a test scenario, there are three users:  Alice, Bob, and Zed.  Alice and Bob are students and Zed is the isntructor.  There are two repositories, one which only Alice and Zed have access to, and one which only Bob and Zed have access to.
 
+__SSH Key Copying
+
 All three users will need to have installed Git, and followed the instructions to generate their public ssh key.  Those .pub files needs to be copied into the /keydir/ directory by the admin (which can be done by simply copying them into the downloaded /keydir/ directory on his local machine and committing later).  The name of the file minus the .pub will become their username within Gitosis.  These files can be copied into the /keydir/ and added into the repository with the following commands:
 
      cd gitosis-admin
@@ -50,6 +54,9 @@ All three users will need to have installed Git, and followed the instructions t
      cp ~/bob.pub keydir/
      cp ~/zed.pub keydir/
      git add keydir/alice.pub keydir/bob.pub keydir/zed.pub
+
+	 
+__Creating the Repositories__
 
 From there the two repositories need to be created, named assignmentA and assignmentB.  From the admin's machine, this can be done with the following commands:
 
@@ -73,6 +80,9 @@ The process can be repeated for the assignmentB repository (and getting out of a
      (work)
      git push origin master:refs/heads/master
 
+	 
+__Modifying User Privileges__
+	 
 Now that the two repositories have been created, two groups need to be created in the gitosis.conf file.  Open the gitosis.conf file in a text editor, and add the following block of text:
 
      [group teamA]
