@@ -1,12 +1,9 @@
 ## Overview
 
-__UNDER CONSTRUCTION__
-
-This page explains one way to set up a Git repository on a CentOS server. 
+This page explains one way to set up a Git repository on a CentOS server, followed by one way to set up Gitosis on that server. 
 This page assumes that you have set up the server using the instructions in BASE.md.
 
-I developed these instructions to help me create multiple separate remote git repositories
-for students of my courses to submit assignments.
+I developed these instructions to help me create multiple separate remote git repositories for students of my courses to submit assignments.
 
 ## Installation
 
