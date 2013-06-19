@@ -36,7 +36,7 @@ The above command will create a .pub file that is the public key, found in the d
 
 Now, from the local machine where the admin generated their ssh key from, the following commands can be used to download necessary files for control of Gitosis:
 
-     git clone git@serverhostname:gitosisadmin.git
+     git clone git@serverhostname:gitosis-admin.git
      cd gitosis-admin
 
 This will download two files, a gitosis.conf file and a /keydir directory.  Modification of the .conf file will control repositories themselves along with user privileges and grouping, and the /keydir directory will be used to hold the .pub files from user created when they generate their public ssh keys.
@@ -89,8 +89,8 @@ Now that the two repositories have been created, two groups need to be created i
      members = alice zed
      writable = assignmentA
 
-     [group team B]
-     members bob zed
+     [group teamB]
+     members =  bob zed
      writable = assignmentB
 
 From there those changes can be committed with the following commands:
